@@ -1,6 +1,8 @@
 package com.astonm.labelAdmin.dao.pojo.vo.permission;
 
+import com.astonm.labelAdmin.dao.entity.SysUser;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 /**
  * @author astonm
@@ -8,15 +10,15 @@ import lombok.Data;
  * @description:
  **/
 @Data
-public class SysUserListVO {
+@EqualsAndHashCode(callSuper = true)
+public class SysUserListVO extends SysUser {
+    private String groupName;
 
-    private Integer id;
+    private String subGroupName;
 
-    private String username;
+    private String ctimeStr;
 
-    private Integer sex;
+    private String utimeStr;
 
-    private String sexStr;
-
-    private Integer status;
+    private String validStr;
 }

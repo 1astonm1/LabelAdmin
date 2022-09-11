@@ -1,6 +1,10 @@
 package com.astonm.labelAdmin.dao.pojo.dto.permission;
 
+import com.astonm.labelAdmin.dao.pojo.dto.BaseDTO;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+
+import java.util.List;
 
 /**
  * @author astonm
@@ -8,10 +12,21 @@ import lombok.Data;
  * @description:
  **/
 @Data
-public class SysUserQueryDTO {
+@EqualsAndHashCode(callSuper = true)
+public class SysUserQueryDTO extends BaseDTO {
     private String username;
 
-    private Integer sex;
+    private String email;
 
-    private Integer status;
+    private String groupId;
+
+    private Integer systemId;
+
+    private List<Integer> subGroupId;
+
+    private Integer startTime;
+
+    private Integer endTime;
+
+    private Integer valid;
 }

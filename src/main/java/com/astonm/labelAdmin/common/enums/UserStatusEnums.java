@@ -5,24 +5,25 @@ import lombok.Getter;
 /**
  * @author Astonm
  * @date 2021/12/25
- * 用户性别枚举类
+ * 用户状态 1-正常 2-禁用/删除
  **/
 @Getter
-public enum UserSexStatusEmus implements BaseEnum {
+public enum UserStatusEnums implements BaseEnum {
+
     /**
-     *  男
+     *  用户正常
      */
-    MAN(0, "男"),
+    NORMAL(1, "正常"),
     /**
-     *  女
+     *  用户删除
      */
-    WOMAN(1, "女"),
+    DELETE(2, "禁用/删除"),
     ;
 
     private Integer code;
     private String name;
 
-    UserSexStatusEmus(int code, String name) {
+    UserStatusEnums(int code, String name) {
         this.code = code;
         this.name = name;
     }
