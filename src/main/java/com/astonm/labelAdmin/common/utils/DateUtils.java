@@ -66,7 +66,6 @@ public final class DateUtils {
      * 日期型按格式转字符串
      *
      * @param date
-     * @param pattern
      * @return
      */
     public final static String formatDateTime(Date date) {
@@ -264,7 +263,7 @@ public final class DateUtils {
 
     /**
      * @param time 当前时间 long
-     * @param day 跨越天数
+     * @param day  跨越天数
      * @return 跨天后的时间
      */
     public final static Long getLastTime(Long time, int day) {
@@ -326,7 +325,7 @@ public final class DateUtils {
     }
 
     /**
-     * @param time 当前时间 加上指定的分钟
+     * @param time   当前时间 加上指定的分钟
      * @param minute 分钟
      * @return 提前到指定分钟的时间
      */
@@ -348,7 +347,7 @@ public final class DateUtils {
 
     /**
      * @param time 当前时间 long
-     * @param mi 跨越天数
+     * @param mi   跨越天数
      * @return 跨天后的时间
      */
     public final static Long getMisTime(Long time, int mi) {
@@ -370,8 +369,8 @@ public final class DateUtils {
     /**
      * 将14位数字时间转换为yyyy-MM-dd HH:mm String时间:精确到分钟
      *
-     * @author zhouhuajun 2011-03-24 10:59
      * @param l ：14位的时间
+     * @author zhouhuajun 2011-03-24 10:59
      */
     public final static String ymdhmFormatM(Long l) {
         if (l == null || l.toString().length() != 14) {
@@ -426,11 +425,11 @@ public final class DateUtils {
     /**
      * 用于返回指定日期格式的日期增加指定天数的日期
      *
-     * @author zhouhj 2011-08-15 10:21
      * @param appDate 指定日期
-     * @param format 指定日期格式
-     * @param days 指定天数
+     * @param format  指定日期格式
+     * @param days    指定天数
      * @return 指定日期格式的日期增加指定天数的日期
+     * @author zhouhj 2011-08-15 10:21
      */
     public static Date getFutureDayInDays(String appDate, String format, int days) throws Exception {
         if (StringUtils.isBlank(appDate) || StringUtils.isBlank(format)) {
@@ -470,10 +469,10 @@ public final class DateUtils {
     /**
      * 重载上面的方法，今天的days天数后的时间
      *
-     * @author zhouhj 2011-08-15 10:21
      * @param format 指定日期格式
-     * @param days 指定天数
+     * @param days   指定天数
      * @return 指定日期格式的日期增加指定天数的日期
+     * @author zhouhj 2011-08-15 10:21
      */
     public static Date getFutureDayInDays(String format, int days) throws Exception {
         if (StringUtils.isBlank(format)) {
@@ -497,11 +496,11 @@ public final class DateUtils {
     /**
      * 用于返回指定日期格式的日期增加指定月数的日期
      *
-     * @author zhouhj 2011-08-15 10:25
      * @param appDate 指定日期
-     * @param format 指定日期格式
-     * @param months 指定天数
+     * @param format  指定日期格式
+     * @param months  指定天数
      * @return 指定日期格式的日期增加指定天数的日期
+     * @author zhouhj 2011-08-15 10:25
      */
     public static Date getFutureDayInMonth(String appDate, String format, int months)
             throws Exception {
@@ -527,11 +526,10 @@ public final class DateUtils {
     /**
      * 重载上面getFutureDayInMonth的方法，得到今天months月后的时间
      *
-     * @author zhouhj 2011-08-15 10:25
-     * @param appDate 指定日期
      * @param format 指定日期格式
      * @param months 指定天数
      * @return 指定日期格式的日期增加指定天数的日期
+     * @author zhouhj 2011-08-15 10:25
      */
     public static Date getFutureDayInMonth(String format, int months) throws Exception {
         if (StringUtils.isBlank(format)) {
@@ -650,7 +648,7 @@ public final class DateUtils {
      * 得到两个日期想减后的分钟数
      *
      * @param startDate 相减的时间
-     * @param endDate 被相减的时间.
+     * @param endDate   被相减的时间.
      * @return 两个日期想减后的分
      */
     public static Long getReduceMinute(Long startDate, Long endDate) {
@@ -672,7 +670,7 @@ public final class DateUtils {
      * 得到两个日期想减后的分钟数
      *
      * @param startDate 相减的时间
-     * @param endDate 被相减的时间.
+     * @param endDate   被相减的时间.
      * @return 两个日期想减后的分
      */
     public static Long getReduceHour(Long startDate, Long endDate) {
@@ -693,7 +691,7 @@ public final class DateUtils {
     /**
      * 得到两个日期想减后的天数
      *
-     * @param reduceDate 想减的时间
+     * @param reduceDate   想减的时间
      * @param byReduceDate 被想减的时间.
      * @return 两个日期想减后的天数
      */
@@ -717,15 +715,13 @@ public final class DateUtils {
      */
     public static String getWeek() {
         Calendar c = Calendar.getInstance();
-        String[] weeks = new String[] {"日", "一", "二", "三", "四", "五", "六"};
+        String[] weeks = new String[]{"日", "一", "二", "三", "四", "五", "六"};
         int weekNum = c.get(Calendar.DAY_OF_WEEK) - 1;
         return weeks[weekNum];
     }
 
     /**
      * 计算两个时间相减得到的天数 传如参数必须为(yyyy-MM-dd HH:mm:ss)格式。
-     *
-     * @param args
      */
     public static String getDays(String starDate, String endDate) {
 
@@ -749,7 +745,7 @@ public final class DateUtils {
 
     /**
      * @param timeLong Sets this <code>Date</code> object to represent a point in time that is
-     *        <code>time</code> milliseconds after January 1, 1970 00:00:00 GMT.
+     *                 <code>time</code> milliseconds after January 1, 1970 00:00:00 GMT.
      * @return yyyy-MM-dd HH:mm:ss 格式的时间
      */
     public static String getDateLong2String(Long timeLong) {
@@ -782,7 +778,7 @@ public final class DateUtils {
      * 判断日期是否在指定的时间段内
      *
      * @param startDate 开始时间
-     * @param endDate 结束时间
+     * @param endDate   结束时间
      * @return true 在有效的时间段内 false不在有效的时间段内
      */
     public static boolean isDateEffecRange(Date startDate, Date endDate) {
@@ -859,7 +855,7 @@ public final class DateUtils {
      * 比较两个日期大小：comparedDate大于baseDate返回1;comparedDate小于baseDate返回-1 comparedDate等于baseDate返回0
      *
      * @param comparedDate ：日期字符"2015-10-01"
-     * @param baseDate ：日期字符"2015-10-01"
+     * @param baseDate     ：日期字符"2015-10-01"
      * @return
      */
     public final static int compareDate(String comparedDate, String baseDate) {
@@ -883,7 +879,7 @@ public final class DateUtils {
      * 比较两个时间大小：comparedDate大于baseDate返回1;comparedDate小于baseDate返回-1 comparedDate等于baseDate返回0
      *
      * @param comparedDate ：日期字符"2015-10-01 09:05:30"
-     * @param baseDate ：日期字符"2015-10-01 09:05:30 "
+     * @param baseDate     ：日期字符"2015-10-01 09:05:30 "
      * @return
      */
     public final static int compareTime(String comparedDate, String baseDate) {
@@ -1037,8 +1033,8 @@ public final class DateUtils {
      *
      * @param startDate
      * @param endDate
-     * @param format 返回month的格式
-     * @param h 是否需要最后一个月 0需要，1不需要
+     * @param format    返回month的格式
+     * @param h         是否需要最后一个月 0需要，1不需要
      * @return
      * @throws Exception
      */
@@ -1069,8 +1065,8 @@ public final class DateUtils {
      *
      * @param startDate
      * @param endDate
-     * @param format 返回天的格式
-     * @param h 是否需要最后一个天 0需要，1不需要
+     * @param format    返回天的格式
+     * @param h         是否需要最后一个天 0需要，1不需要
      * @return
      * @throws Exception
      */
@@ -1376,7 +1372,7 @@ public final class DateUtils {
      * 计算两个日期相差的月份数
      *
      * @param start <String>
-     * @param end <String>
+     * @param end   <String>
      * @return int
      * @throws ParseException
      */
@@ -1528,7 +1524,6 @@ public final class DateUtils {
     }
 
 
-
     /**
      * 获取指定时间所在月第一天
      *
@@ -1548,7 +1543,6 @@ public final class DateUtils {
         }
         return formatDate(cale.getTime());
     }
-
 
 
     /**
@@ -1574,7 +1568,6 @@ public final class DateUtils {
     }
 
 
-
     /**
      * 获取指定时间前36月第一天
      *
@@ -1596,7 +1589,6 @@ public final class DateUtils {
         }
         return formatDate(cale.getTime());
     }
-
 
 
     /**
@@ -1642,7 +1634,6 @@ public final class DateUtils {
         }
         return formatDate(cale.getTime());
     }
-
 
 
     /**
@@ -1747,6 +1738,7 @@ public final class DateUtils {
 
     /**
      * 获取一天中凌晨时间
+     *
      * @param date
      * @return
      */
@@ -1762,10 +1754,11 @@ public final class DateUtils {
 
     /**
      * 获取一天中指定的小时
+     *
      * @param date
      * @return
      */
-    public final static Date getDayTimeByHour(Date date,int hour) {
+    public final static Date getDayTimeByHour(Date date, int hour) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
         calendar.set(Calendar.HOUR_OF_DAY, hour);
@@ -1777,6 +1770,7 @@ public final class DateUtils {
 
     /**
      * 获取一天中最晚的时间
+     *
      * @param date
      * @return
      */
@@ -1790,5 +1784,7 @@ public final class DateUtils {
         return start;
     }
 
-
+    public static Integer getCurrentTimeStamp() {
+        return (int) (System.currentTimeMillis() / 1000);
+    }
 }
