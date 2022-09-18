@@ -78,9 +78,10 @@ public class UserServiceImpl implements UserService {
             // todo 组别关系需要数据库维护
             vo.setGroupName(BaseEnum.getEnumName(UserGroupEnums.class, vo.getGroupId()));
             vo.setSubGroupName("");
-            vo.setCtimeStr(DateUtils.formatDateTime(new Date(vo.getCtime())));
-            vo.setUtimeStr(DateUtils.formatDate(new Date(vo.getUtime())));
+            vo.setCtimeStr(DateUtils.formatDateTime(new Date(vo.getCtime() * 1000)));
+            vo.setUtimeStr(DateUtils.formatDateTime(new Date(vo.getUtime() * 1000)));
             vo.setValidStr(BaseEnum.getEnumName(UserStatusEnums.class, vo.getValid()));
+            result.add(vo);
         }
 
         PageBean pageBean = new PageBean();
@@ -93,12 +94,25 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public ResponseData createUser(SysUserDTO dto) {
-        // 校验用户信息
-
+        String username = dto.getUserName();
+        // 按照username 查询用户是否已存在
+        SysUser user = sysUserService.getUserByUsername(username);
+        if (user != null) {
+            return ResponseData.failure("用户名已存在");
+        }
         // 创建用户对象并赋值
         SysUser sysUser = new SysUser();
+        sysUser.setUserName(dto.getUserName());
+        sysUser.setPhoneNumber(dto.getPhoneNumber());
+        sysUser.setPassword(dto.getPassword());
+        sysUser.setEmail(dto.getEmail());
+        sysUser.setCtime(DateUtils.getCurrentTimeStamp());
+        sysUser.setUtime(DateUtils.getCurrentTimeStamp());
+        sysUser.setLastLoginTime(DateUtils.getCurrentTimeStamp());
+        sysUser.setValid(UserStatusEnums.NORMAL.getCode());
         // 存储到数据库中
-        return null;
+        sysUserService.save(sysUser);
+        return ResponseData.success("用户创建成功");
     }
 
     @Override

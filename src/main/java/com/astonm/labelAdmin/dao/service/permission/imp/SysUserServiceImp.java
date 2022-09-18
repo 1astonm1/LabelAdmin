@@ -27,4 +27,13 @@ public class SysUserServiceImp extends ServiceImpl<SysUserMapper, SysUser> imple
                 .last("limit 1");
         return this.getOne(queryWrapper);
     }
+
+    @Override
+    public SysUser getUserByUsername(String username) {
+        LambdaQueryWrapper<SysUser> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(SysUser::getUserName, username)
+                .eq(SysUser::getValid, CommonConst.USER_NORMAL)
+                .last("limit 1");
+        return this.getOne(queryWrapper);
+    }
 }
